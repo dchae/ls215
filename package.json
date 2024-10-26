@@ -1,0 +1,21 @@
+{
+  "name": "ls215",
+  "version": "1.0.0",
+  "description": "Launch School LS215",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.8",
+    "@babel/eslint-parser": "^7.25.8",
+    "eslint": "^9.13.0",
+    "eslint-cli": "^1.1.1"
+  }
+}
