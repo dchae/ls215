@@ -51,6 +51,9 @@ const tests = [
   { input: [], expected: null },
   { input: ["1", "."], expected: null },
   { input: ["1", "..1"], expected: null },
+  { input: ["1", ".1."], expected: null },
+  { input: ["1", "1..0"], expected: null },
+  { input: ["1", "1."], expected: null },
   { input: ["", "1"], expected: null },
   { input: ["0.1", "1", "1.18"], expected: -1 },
 ];

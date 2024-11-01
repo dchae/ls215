@@ -31,6 +31,9 @@ export default [
         window: true,
         Handlebars: true,
         BigInt: true,
+
+        Map: true,
+        Set: true,
       },
 
       parser: babelParser,
