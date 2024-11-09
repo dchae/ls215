@@ -81,6 +81,7 @@ export default [
             "i",
             "j",
             "k",
+            "v",
             "s",
             "c",
             "n",

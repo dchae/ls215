@@ -37,22 +37,35 @@ arrays with point objects
 */
 "use strict";
 
-function overlappingRectangles(rect1, rect2) {
-  let res = 0;
+// function overlappingRectangles(rect1, rect2) {
+//   let res = 0;
+//
+//   for (let col = rect1[0].y; col < rect1[1].y; col++) {
+//     for (let row = rect1[0].x; row < rect1[1].x; row++) {
+//       if (
+//         rect2[0].y <= col &&
+//         col < rect2[1].y &&
+//         rect2[0].x <= row &&
+//         row < rect2[1].x
+//       ) {
+//         res += 1;
+//       }
+//     }
+//   }
+//   return res;
+// }
 
-  for (let col = rect1[0].y; col < rect1[1].y; col++) {
-    for (let row = rect1[0].x; row < rect1[1].x; row++) {
-      if (
-        rect2[0].y <= col &&
-        col < rect2[1].y &&
-        rect2[0].x <= row &&
-        row < rect2[1].x
-      ) {
-        res += 1;
-      }
-    }
-  }
-  return res;
+function overlappingRectangles(rect1, rect2) {
+  let leftBound = Math.max(rect1[0].x, rect2[0].x);
+  let rightBound = Math.min(rect1[1].x, rect2[1].x);
+  let lowerBound = Math.max(rect1[0].y, rect2[0].y);
+  let upperBound = Math.min(rect1[1].y, rect2[1].y);
+
+  let width = rightBound - leftBound;
+  let height = upperBound - lowerBound;
+
+  if (width <= 0 || height <= 0) return 0;
+  return width * height;
 }
 
 // -- Examples / Test Cases --
