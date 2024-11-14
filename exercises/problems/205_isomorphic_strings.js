@@ -11,16 +11,29 @@ console.log(isIsomorphic("foo", "bar") === false);
 // No two characters may map to the same character,
 // but a character may map to itself.
 
+// function toKey(str) {
+//   let tally = [...str].reduce((tally, char, i) => {
+//     if (!tally.has(char)) tally.set(char, []);
+//     tally.get(char).push(i);
+//     return tally;
+//   }, new Map());
+//
+//   let key = JSON.stringify([...tally.values()]);
+//
+//   return key;
+// }
+
 function toKey(str) {
-  let tally = [...str].reduce((tally, char, i) => {
-    if (!tally.has(char)) tally.set(char, []);
-    tally.get(char).push(i);
-    return tally;
-  }, new Map());
-
-  let key = JSON.stringify([...tally.values()]);
-
-  return key;
+  let seen = [];
+  let key = [...str].map((char) => {
+    let idx = seen.indexOf(char);
+    if (idx === -1) {
+      seen.push(char);
+      idx = seen.length - 1;
+    }
+    return idx;
+  });
+  return key.join("");
 }
 
 function isIsomorphic(str1, str2) {
@@ -104,3 +117,35 @@ console.log(
 // DS: 16:57
 // Algo: 22:00
 // Code: 30:48
+//
+// Eddie Notes
+// - clarifying question specificity
+// - love the questions with examples
+// - maybe missed the edge case with different string length?
+// - when coming up with an approach,
+//   try to find a case that breaks your mental model
+//    - i.e. try to find a case where both strings have the
+//           same number of unique chars, but aren't isomorphic
+//    - e.g. egg, geg
+//
+//    - i.e., try to find a case where the array of rolling
+//            count of unique chars is the same, but they aren't isomorphic
+//    - e.g, egg [122], ege [122]
+//
+// - at algorithm stage "I feel like I'm missing something"
+//   - great! go with your intuition
+// - console . tab trick
+// - naming string1Chars makes me think it's going to be an iterable
+// - Love how calm you are after going back to the data structure stage
+// - are you ruby track? charsObj[char] can be falsey
+//   while still existing as an entry (when val == 0)
+// - "Let's just check that works" running code without sayin
+//    what you expect to output
+//
+//
+// Start: 00
+// Problem + examples: 10
+// DS:
+// Algo start 20:31
+// debugging: 23:01
+// DS / Algo: 24:23

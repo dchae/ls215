@@ -1,4 +1,5 @@
-// Create a function that returns the count of almost palindromes from a list of words. An almost palidrome is a word whose letters can be rearranged to form a palindrome.
+// Create a function that returns the count of almost palindromes from a list of words.
+// An almost palidrome is a word whose letters can be rearranged to form a palindrome.
 /*
 -- Problem --
 Input: array of strings
